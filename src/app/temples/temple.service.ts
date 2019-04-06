@@ -25,8 +25,11 @@ export class TempleService {
             'yes')
       ];
 
-    constructor() {
+    constructor() {}
 
+    setTemples(temples: Temple[]) {
+        this.temples = temples;
+        this.templesChanged.next(this.temples.slice());
     }
 
     getTemples(): Temple[] {

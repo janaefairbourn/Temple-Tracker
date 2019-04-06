@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TempleStartComponent } from './temples/temple-start/temple-start.component';
 import { WindRefService } from './wind-ref.service';
 import { TempleService } from './temples/temple.service';
+import { DataStorageService } from './shared/data-storage.service';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,10 @@ import { TempleService } from './temples/temple.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HttpModule,
     AppRoutingModule
   ],
-  providers: [WindRefService, TempleService],
+  providers: [WindRefService, TempleService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
