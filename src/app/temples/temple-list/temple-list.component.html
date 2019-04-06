@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewTemple()">New Temple</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-temple-item
+      *ngFor="let temple of temples; let i = index"
+      [temple]="temple"
+      [index]="i">
+    </app-temple-item>
+  </div>
+</div>

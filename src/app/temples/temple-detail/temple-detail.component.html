@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img 
+      [src]="temple.imagePath" 
+      alt="{{ temple.name }}" 
+      class="img-responsive"
+      style="max-height: 300px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h3>{{ temple.name }}</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h6>{{ temple.location }}</h6>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <p>{{ temple.experience }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <p>{{ temple.attended }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group">
+      <a class="btn btn-primary pull-right" (click)="onEditTemple()">Edit</a>
+      <a class="btn btn-danger btn-pull-right" (click)="onDeleteTemple()">Remove</a>
+  </div>
+</div>
