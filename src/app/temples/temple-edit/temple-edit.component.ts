@@ -10,7 +10,7 @@ import { TempleService } from '../temple.service';
   styleUrls: ['./temple-edit.component.css']
 })
 export class TempleEditComponent implements OnInit {
-  id: number;
+  id: string;
   editMode = false;
   templeForm: FormGroup;
 
@@ -22,7 +22,7 @@ export class TempleEditComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
+          this.id = params['id'];
           this.editMode = params['id'] != null;
           this.initForm();
         }

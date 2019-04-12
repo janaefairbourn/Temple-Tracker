@@ -9,7 +9,7 @@ import { Temple } from '../../temple.model';
 })
 export class TempleItemComponent implements OnInit {
   @Input() temple: Temple;
-  @Input() index: number;
+  @Input() index: string;
 
   ngOnInit() {
   }

@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Temple } from '../temple.model';
 import { TempleService } from '../temple.service';
+import { WindRefService } from 'src/app/wind-ref.service';
 
 @Component({
   selector: 'app-temple-detail',
@@ -10,18 +11,22 @@ import { TempleService } from '../temple.service';
   styleUrls: ['./temple-detail.component.css']
 })
 export class TempleDetailComponent implements OnInit {
+  nativeWindow: any;
   temple: Temple;
-  id: number;
+  id: string;
 
-  constructor(private templeService: TempleService,
+  constructor(private windowRefService: WindRefService,
+              private templeService: TempleService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+    this.nativeWindow = windowRefService.getNativeWindow();
+               }
 
   ngOnInit() {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
+          this.id = params['id'];
           this.temple = this.templeService.getTemple(this.id);
         }
       );
@@ -31,8 +36,14 @@ export class TempleDetailComponent implements OnInit {
     this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
+  // onView(){
+  //   if (this.temple.imagePath) {
+  //     this.nativeWindow.open(this.temple.imagePath);
+  //   }
+  // }
+
   onDeleteTemple() {
-    this.templeService.deleteTemple(this.id);
+    this.templeService.deleteTemple(this.temple);
     this.router.navigate(['/temples']);
   }
 

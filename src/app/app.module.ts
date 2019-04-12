@@ -17,6 +17,7 @@ import { TempleStartComponent } from './temples/temple-start/temple-start.compon
 import { WindRefService } from './wind-ref.service';
 import { TempleService } from './temples/temple.service';
 import { DataStorageService } from './shared/data-storage.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DataStorageService } from './shared/data-storage.service';
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [WindRefService, TempleService, DataStorageService],
   bootstrap: [AppComponent]

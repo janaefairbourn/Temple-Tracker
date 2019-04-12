@@ -11,8 +11,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./temple-list.component.css']
 })
 export class TempleListComponent implements OnInit, OnDestroy {
-  temples: Temple[];
-  subscription: Subscription;
+  temples: Temple[] = [];
+  private subscription: Subscription;
 
   constructor(private templeService: TempleService,
               private router: Router,
